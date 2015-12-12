@@ -1,7 +1,7 @@
 export TARGET_CODESIGN_FLAGS="-Ssign.plist"
 export THEOS_PACKAGE_DIR_NAME=debs
 
-include theos/makefiles/common.mk
+include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = SBServer
 SBServer_FILES = SBServer.xm
