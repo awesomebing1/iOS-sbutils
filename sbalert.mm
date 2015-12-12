@@ -1,5 +1,5 @@
 #import <CoreFoundation/CoreFoundation.h>
-#import <CoreFoundation/CFUserNotification.h>
+#import "CFUserNotification.h"
 #include <unistd.h>
 
 void display_usage( char **argv ){
