@@ -3,14 +3,14 @@
 #import <SpringBoard/SBMediaController.h>
 #import <SpringBoard/SBWiFiManager.h>
 #import <SpringBoard/SBTelephonyManager.h>
-#import <BluetoothManager/BluetoothManager.h> 
-#import <CoreLocation/CLLocationManager.h> 
+#import <BluetoothManager/BluetoothManager.h>
+#import <CoreLocation/CLLocationManager.h>
 */
 #import "header.h"
 
 
 
-%hook SpringBoard 
+%hook SpringBoard
 - (id)init {
 	if ((self = %orig)) {
 		CPDistributedMessagingCenter *messagingCenter = [CPDistributedMessagingCenter centerNamed:@"com.innoying.sbserver"];
@@ -34,16 +34,16 @@
         }else if([options isEqualToString:@"-n"] == YES){
                 [(SBMediaController *)[%c(SBMediaController) sharedInstance] changeTrack:1];
         }else{
-		return [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:-1] forKey:@"status"];	
+		return [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:-1] forKey:@"status"];
 	}
 	return [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:1] forKey:@"status"];
 }
 %new(@@:@@)
 - (NSDictionary *)handleSbtoggleCommand:(NSString *)name withUserInfo:(NSDictionary *)userInfo {
 	//Extract options
-    NSLog(@"it's called!");
+    HBLogDebug(@"it's called!");
 	NSString *options = [userInfo objectForKey:@"options"];
-    
+
 	if([options isEqualToString:@"-w"] == YES){
         if ([%c(SBWiFiManager) sharedInstance] == nil) {
             return [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:-1] forKey:@"status"];
@@ -70,7 +70,7 @@
         	return [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:1] forKey:@"status"];
 
     }else if([options isEqualToString:@"-l"] == YES){
-		Class CLLocationManager = %c(CLLocationManager);    	
+		Class CLLocationManager = %c(CLLocationManager);
     	if ([CLLocationManager locationServicesEnabled]) {
     		[CLLocationManager setLocationServicesEnabled:NO];
     		[CLLocationManager setStatusBarIconEnabled:NO forLocationEntityClass:1];
@@ -88,7 +88,7 @@
     }else if([options isEqualToString:@"-d"] == YES){
     //To-do
     }else{
-		return [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:-1] forKey:@"status"];	
+		return [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:-1] forKey:@"status"];
 	}
 	return [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:1] forKey:@"status"];
 }
