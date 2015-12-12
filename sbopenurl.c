@@ -13,7 +13,7 @@ int main(int argc, char **argv) {
     }
     CFURLRef cu = CFURLCreateWithBytes(NULL, (UInt8*)argv[1], strlen(argv[1]), kCFStringEncodingUTF8, NULL);
     if(!cu) {
-        fprintf(stderr, "invalid URL\n");
+        fprintf(stderr, "Invalid URL!\n");
         return 1;
     }
     int fd = dup(2);
@@ -21,7 +21,7 @@ int main(int argc, char **argv) {
     bool ret = SBSOpenSensitiveURLAndUnlock(cu, 1);
     if(!ret) {
     dup2(fd, 2);
-        fprintf(stderr, "SBSOpenSensitiveURLAndUnlock failed\n");
+        fprintf(stderr, "SBSOpenSensitiveURLAndUnlock failed! Is your device locked?\n");
         return 1;
     }
     return 0;
