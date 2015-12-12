@@ -23,7 +23,7 @@ int main(int argc, char **argv, char **envp) {
 
 	//Get Device
 	UIDevice *aDevice = [UIDevice currentDevice];
-	
+
 	//If no args
 	if(argc == 1){
 		//Display the help
@@ -31,7 +31,7 @@ int main(int argc, char **argv, char **envp) {
 		//Clean
 		goto clean;
 	}
-	
+
 	//Setup c for getopt
 	int ch;
 
@@ -61,7 +61,7 @@ int main(int argc, char **argv, char **envp) {
 			break;
 			case 'u':
 				//UUID
-				printf("%s\n", (char*)[[aDevice uniqueIdentifier] UTF8String]);
+				printf("%s\n", "On 12/11/15, this feature was removed due to me not being able to fix it. \n Sorry.\n");
 			break;
 			case 'o':
 				//Orientation
@@ -163,11 +163,11 @@ int main(int argc, char **argv, char **envp) {
         }
 	}
 	clean:
-	
+
 	//Finish up
 	argc -= optind;
 	argv += optind;
-	
+
 	//Drain the pool
 	[pool drain];
 
