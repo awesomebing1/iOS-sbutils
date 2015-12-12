@@ -1,9 +1,10 @@
-Package: com.innoying.sbutils
+Package: io.github.awesomebing1.sbutils
 Name: sbutils
-Version: 1.0.2
+Version: 2.1.1
+Replaces: com.innoying.sbutils
 Architecture: iphoneos-arm
-Description: iOS utilities - replaces some broken Erica utilities and adds a bunch of new ones
-Maintainer: innoying
-Author: innoying
+Description: iOS utilities - replaces some broken Erica utilities and adds a bunch of new ones. And, this time, it might work. Originally made by innoying.
+Maintainer: awesomebing1
+Author: awesomebing1
 Section: System
 Tag: role::hacker
