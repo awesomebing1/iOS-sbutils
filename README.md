@@ -1,6 +1,6 @@
 sbutils
 =======
-###sbutils is a collection of utilities to access iOS functions via ssh and to replace some broken ericautilities.
+### sbutils is a collection of utilities to access iOS functions via ssh and to replace some broken ericautilities.
 At this time, several hotfixes are included. For example, sburlschemes doesn't work at all and sbdevice can't get the UUID.
 
 Installation
